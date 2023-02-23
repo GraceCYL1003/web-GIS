@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title>WebGIS app</title>
+		<link rel=stylesheet href="{{ url_for('static', filename='styles.css') }}"/>
+		<link rel="stylesheet" href="{{ url_for('static', filename='js/leaflet/leaflet.css') }}" />
+		<link rel="stylesheet" href="{{ url_for('static', filename='js/jquery-ui-1.12.1.custom/jquery-ui.min.css') }}">
+		<script src="{{ url_for('static', filename='js/jquery-ui-1.12.1.custom/external/jquery/jquery.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/jquery-ui-1.12.1.custom/jquery-ui.min.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/leaflet/leaflet.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/leaflet/plugins/Leaflet.Editable.js') }}"></script>
+		<script src="{{ url_for('static', filename='js/turf.min.js') }}" charset="utf-8"></script>
+		<link rel="shortcut icon" href="data:image/x-icon;," type="image/x-icon"> 
+	</head>
+	<body>
+		<div id="map-wrapper">
+			<div id="mapid"></div>
+			<div id="toolbar" class="toolbar">
+				<div id ="file_menu" class="menu">
+					<button class="dropbtn">File</button>
+					<div id = "files" class="dropdown-content">
+						<button id="upload_btn" class="tools">Upload</button>
+						<button id="newPT_btn" class="tools">New Layer</button>
+						<button id="save_btn" class="tools">Save</button>
+						<button id="save_all_btn" class="tools">Save All</button>
+					</div>
+				</div>
+					
+				<div id = "edit_menu" class="menu">
+					<button class="dropbtn">Edit</button>
+					<div id = "edit" class="dropdown-content">
+						<button id="clear_btn" class="tools">Clear Map</button>
+						<button id="feat_attr" class="tools">Features</button>
+					</div>
+				</div>		
+				<div id = "geo_menu" class="menu">
+					<button class="dropbtn">Geoprocessing</button>
+					<div id = "geo" class="dropdown-content">
+						<button id="buffer_btn" class="tools">Buffer</button>
+						<button id="overlay" class="tools">Overlay</button>
+					</div>	
+				</div>
+			</div>
+			<!--<script defer src="{{ url_for('static', filename='js/main.js') }}"></script>-->
+			<script type="module" src="{{ url_for('static', filename='js/main.js') }}"></script>
+		</div>
+		<div id="sidebar" class="workplace">
+			<div id="layer-wp" class="wp">
+				<div id='layer-ctrl'>
+					<button id='new_layer' class='tools'>Add...</button>
+					<button id='layer-up' class='tools'>▲</button>
+					<button id='layer-down' class='tools'>▼</button>
+				</div>
+				<div id="layer-box"></div>
+			</div>
+		</div>
+		<div id="popup-window">
+			<div id='popup-toolbar'>
+				<button id="close_btn">x</button>
+			</div>
+			<div id='popup-content'></div>
+			<div id='popup-footbar'></div>
+		</div>
+		
+	</body>
+</html>
